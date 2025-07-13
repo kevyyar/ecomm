@@ -1,1 +1,75 @@
 @import "tailwindcss";
+
+@theme {
+  /* ==========================================================================
+     1. COLORS
+     ========================================================================== */
+  --color-primary-pink-500: #ec4899;
+  --color-primary-pink-600: #db2777;
+  --color-primary-rose-500: #f43f5e;
+  --color-primary-rose-600: #e11d48;
+
+  --color-secondary-blue-500: #3b82f6;
+  --color-secondary-blue-600: #2563eb;
+  --color-secondary-green-500: #10b981;
+  --color-secondary-yellow-400: #fbbf24;
+
+  --color-bg-rose-50: #fdf2f8;
+  --color-bg-white: #ffffff;
+  --color-bg-gray-50: #f9fafb;
+  --color-bg-gray-100: #f3f4f6;
+
+  --color-pastel-pink: #fce7f3;
+  --color-pastel-blue: #dbeafe;
+  --color-pastel-yellow: #fef3c7;
+  --color-pastel-green: #d1fae5;
+  --color-pastel-purple: #e9d5ff;
+  --color-pastel-orange: #fed7aa;
+
+  --color-text-gray-800: #1f2937;
+  --color-text-gray-700: #374151;
+  --color-text-gray-600: #4b5563;
+  --color-text-gray-500: #6b7280;
+  --color-text-gray-400: #9ca3af;
+
+  --color-success-green-500: #10b981;
+  --color-success-green-100: #dcfce7;
+  --color-error-red-500: #ef4444;
+  --color-error-red-100: #fee2e2;
+  --color-warning-yellow-500: #eab308;
+  --color-warning-yellow-100: #fef3c7;
+  
+  --color-border-gray-200: #e5e7eb;
+  --color-border-gray-300: #d1d5db;
+  --color-border-pink-200: #fbcfe8;
+  --color-border-pink-300: #f9a8d4;
+
+  /* ==========================================================================
+     2. TYPOGRAPHY
+     ========================================================================== */
+  --font-poppins: 'Poppins', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+
+  /* ==========================================================================
+     3. SPACING & SIZING
+     ========================================================================== */
+
+  /* ==========================================================================
+     4. SHADOWS & EFFECTS
+     ========================================================================== */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* ==========================================================================
+     5. Z-INDEX
+     ========================================================================== */
+  --z-10: 10;
+  --z-20: 20;
+  --z-30: 30;
+  --z-40: 40;
+  --z-50: 50;
+}
