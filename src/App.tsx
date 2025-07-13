@@ -1,4 +1,5 @@
-import ProductList from "./features/products/ProductList";
+import ProductForm from './features/products/ProductForm';
+import ProductList from './features/products/ProductList';
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
         <h1 className="text-4xl font-bold text-center">E-Commerce Store</h1>
       </header>
       <main>
+        <ProductForm />
         <ProductList />
       </main>
     </div>

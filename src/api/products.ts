@@ -10,7 +10,9 @@ export interface Product {
   updatedAt: Date;
 }
 
-const API_URL = "http://localhost:5000/api";
+type NewProductData = Omit<Product, 'id' | 'createdAt' | 'updatedAt'>;
+
+const API_URL = 'http://localhost:5000/api';
 
 export const fetchProducts = async (): Promise<Product[]> => {
   try {
@@ -25,4 +27,22 @@ export const fetchProducts = async (): Promise<Product[]> => {
     console.error(`Failed to fetch data: ${error}`);
     return [];
   }
+};
+
+export const createProduct = async (
+  newProduct: NewProductData
+): Promise<Product> => {
+  const response = await fetch(`${API_URL}/products`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newProduct),
+  });
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.message || 'Failed to create the product');
+  }
+
+  return response.json();
 };
