@@ -81,6 +81,7 @@ export const ProductGrid: Story = {
         price={199.99}
         rating={4.7}
         icon={<Zap className="w-4 h-4 text-blue-500" />}
+        onClick={() => console.log('Navigate to headphones details')}
       />
       <ModernCard
         image="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=300&fit=crop"
@@ -89,6 +90,7 @@ export const ProductGrid: Story = {
         price={449.99}
         rating={4.9}
         icon={<Gift className="w-4 h-4 text-green-500" />}
+        onClick={() => console.log('Navigate to camera details')}
       />
       <ModernCard
         image="https://images.unsplash.com/photo-1560343090-f0409e92791a?w=400&h=300&fit=crop"
@@ -97,6 +99,7 @@ export const ProductGrid: Story = {
         price={129.99}
         rating={4.4}
         icon={<Tag className="w-4 h-4 text-red-500" />}
+        onClick={() => console.log('Navigate to sneakers details')}
       />
     </div>
   ),
@@ -124,8 +127,8 @@ export const Minimal: Story = {
   },
 };
 
-// Personalized Actions
-export const WithActions: Story = {
+// Clickable Card
+export const ClickableCard: Story = {
   args: {
     image:
       "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400&h=300&fit=crop",
@@ -139,7 +142,7 @@ export const WithActions: Story = {
     docs: {
       description: {
         story:
-          "Card con funciones onAddToCart y onFavorite que puedes manejar en tus componentes.",
+          "Card clickable con icono arrow right que redirige a los detalles del producto. El botón favorito funciona independientemente.",
       },
     },
   },
