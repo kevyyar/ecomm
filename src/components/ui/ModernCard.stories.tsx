@@ -30,6 +30,14 @@ const meta: Meta<typeof ModernCard> = {
       control: { type: "range", min: 0, max: 5, step: 0.1 },
       description: "Calificación del producto (0-5)",
     },
+    icon: {
+      control: false,
+      description: "Icono opcional para mostrar en la esquina superior izquierda",
+    },
+    onClick: {
+      action: 'clicked',
+      description: 'Función ejecutada al hacer click en la card para redirigir a detalles',
+    },
   },
 };
 
@@ -46,6 +54,7 @@ export const Default: Story = {
       "Reloj inteligente con monitoreo de salud avanzado y batería de 7 días. Perfecto para tu estilo de vida activo.",
     price: 299.99,
     rating: 4.5,
+    onClick: () => console.log('Navigate to product details'),
   },
 };
 
