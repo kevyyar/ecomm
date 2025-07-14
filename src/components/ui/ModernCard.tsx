@@ -1,5 +1,6 @@
 import React from "react";
 import { Heart, Star, ArrowRight } from "lucide-react";
+import PillButton, { PillButtonProps } from "./PillButton";
 
 export interface ModernCardProps {
   image: string;
@@ -8,6 +9,11 @@ export interface ModernCardProps {
   icon?: React.ReactNode;
   price?: number;
   rating?: number;
+  pill?: {
+    text: string;
+    variant?: PillButtonProps["variant"];
+    size?: PillButtonProps["size"];
+  };
   onClick?: () => void;
   onFavorite?: () => void;
   className?: string;
@@ -20,6 +26,7 @@ const ModernCard: React.FC<ModernCardProps> = ({
   icon,
   price,
   rating = 0,
+  pill,
   onClick,
   onFavorite,
   className = "",
@@ -56,6 +63,17 @@ const ModernCard: React.FC<ModernCardProps> = ({
         {icon && (
           <div className="absolute top-3 left-3 p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
             {icon}
+          </div>
+        )}
+
+        {/* Pill button */}
+        {pill && (
+          <div className="absolute top-3 left-3 z-10">
+            <PillButton
+              text={pill.text}
+              variant={pill.variant}
+              size={pill.size || 'sm'}
+            />
           </div>
         )}
       </div>

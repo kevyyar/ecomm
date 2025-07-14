@@ -34,6 +34,10 @@ const meta: Meta<typeof ModernCard> = {
       control: false,
       description: "Icono opcional para mostrar en la esquina superior izquierda",
     },
+    pill: {
+      control: 'object',
+      description: 'Pill button configuration for discounts/categories',
+    },
     onClick: {
       action: 'clicked',
       description: 'Función ejecutada al hacer click en la card para redirigir a detalles',
@@ -146,4 +150,93 @@ export const ClickableCard: Story = {
       },
     },
   },
+};
+
+// Card with discount pill
+export const WithDiscountPill: Story = {
+  args: {
+    image:
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop",
+    title: "Smart Watch Pro",
+    description:
+      "Reloj inteligente con monitoreo de salud avanzado y batería de 7 días.",
+    price: 299.99,
+    rating: 4.5,
+    pill: {
+      text: "Save 20%",
+      variant: "discount",
+      size: "sm",
+    },
+  },
+};
+
+// Card with category pill
+export const WithCategoryPill: Story = {
+  args: {
+    image:
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop",
+    title: "Audífonos Inalámbricos",
+    description:
+      "Sonido de alta fidelidad con cancelación de ruido activa. Batería de 30 horas.",
+    price: 199.99,
+    rating: 4.7,
+    pill: {
+      text: "Electronics",
+      variant: "category",
+      size: "sm",
+    },
+  },
+};
+
+// Card with new product pill
+export const WithNewPill: Story = {
+  args: {
+    image:
+      "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=400&h=300&fit=crop",
+    title: "Sneakers Urban",
+    description:
+      "Estilo urbano moderno con máxima comodidad. Edición limitada disponible.",
+    price: 129.99,
+    rating: 4.4,
+    pill: {
+      text: "New",
+      variant: "new",
+      size: "sm",
+    },
+  },
+};
+
+// Grid with pills
+export const ProductGridWithPills: Story = {
+  render: () => (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl">
+      <ModernCard
+        image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop"
+        title="Audífonos Inalámbricos"
+        description="Sonido de alta fidelidad con cancelación de ruido activa."
+        price={199.99}
+        rating={4.7}
+        pill={{ text: "Save 15%", variant: "discount", size: "sm" }}
+        onClick={() => console.log('Navigate to headphones details')}
+      />
+      <ModernCard
+        image="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=300&fit=crop"
+        title="Cámara Vintage"
+        description="Cámara analógica con diseño retro. Perfecta para fotógrafos."
+        price={449.99}
+        rating={4.9}
+        pill={{ text: "Best Seller", variant: "bestseller", size: "sm" }}
+        onClick={() => console.log('Navigate to camera details')}
+      />
+      <ModernCard
+        image="https://images.unsplash.com/photo-1560343090-f0409e92791a?w=400&h=300&fit=crop"
+        title="Sneakers Urban"
+        description="Estilo urbano moderno con máxima comodidad."
+        price={129.99}
+        rating={4.4}
+        pill={{ text: "New", variant: "new", size: "sm" }}
+        onClick={() => console.log('Navigate to sneakers details')}
+      />
+    </div>
+  ),
 };
