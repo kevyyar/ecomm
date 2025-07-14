@@ -1,6 +1,6 @@
 import React from "react";
 import { Heart, Star, ArrowRight } from "lucide-react";
-import PillButton, { PillButtonProps } from "./PillButton";
+import PillButton, { type PillButtonProps } from "./PillButton";
 
 export interface ModernCardProps {
   image: string;
@@ -13,6 +13,7 @@ export interface ModernCardProps {
     text: string;
     variant?: PillButtonProps["variant"];
     size?: PillButtonProps["size"];
+    icon?: React.ReactNode;
   };
   onClick?: () => void;
   onFavorite?: () => void;
@@ -72,7 +73,8 @@ const ModernCard: React.FC<ModernCardProps> = ({
             <PillButton
               text={pill.text}
               variant={pill.variant}
-              size={pill.size || 'sm'}
+              size={pill.size || "sm"}
+              icon={pill.icon}
             />
           </div>
         )}

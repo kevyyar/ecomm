@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Tag, Zap, Gift } from "lucide-react";
+import { Tag, Zap, Gift, Flame, Sparkles } from "lucide-react";
 import ModernCard from "./ModernCard";
 
 const meta: Meta<typeof ModernCard> = {
@@ -239,4 +239,61 @@ export const ProductGridWithPills: Story = {
       />
     </div>
   ),
+};
+
+// Card with hot pill and fire icon
+export const WithHotPillAndIcon: Story = {
+  args: {
+    image:
+      "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=400&h=300&fit=crop",
+    title: "Sneakers Urban",
+    description:
+      "Estilo urbano moderno con máxima comodidad. Edición limitada disponible.",
+    price: 129.99,
+    rating: 4.4,
+    pill: {
+      text: "Hot",
+      icon: <Flame className="w-3 h-3" />,
+      variant: "sale",
+      size: "sm",
+    },
+  },
+};
+
+// Card with emoji fire icon
+export const WithEmojiFire: Story = {
+  args: {
+    image:
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop",
+    title: "Smart Watch Pro",
+    description:
+      "Reloj inteligente con monitoreo de salud avanzado y batería de 7 días.",
+    price: 299.99,
+    rating: 4.5,
+    pill: {
+      text: "Hot",
+      icon: <span className="text-xs">🔥</span>,
+      variant: "sale",
+      size: "sm",
+    },
+  },
+};
+
+// Card with sparkles icon
+export const WithSparklesIcon: Story = {
+  args: {
+    image:
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop",
+    title: "Audífonos Inalámbricos",
+    description:
+      "Sonido de alta fidelidad con cancelación de ruido activa. Batería de 30 horas.",
+    price: 199.99,
+    rating: 4.7,
+    pill: {
+      text: "New",
+      icon: <Sparkles className="w-3 h-3" />,
+      variant: "new",
+      size: "sm",
+    },
+  },
 };
