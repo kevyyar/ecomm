@@ -30,17 +30,23 @@ const meta: Meta<typeof ModernCard> = {
       control: { type: "range", min: 0, max: 5, step: 0.1 },
       description: "Calificación del producto (0-5)",
     },
+    totalRatings: {
+      control: "number",
+      description: "Total number of ratings/reviews",
+    },
     icon: {
       control: false,
-      description: "Icono opcional para mostrar en la esquina superior izquierda",
+      description:
+        "Icono opcional para mostrar en la esquina superior izquierda",
     },
     pill: {
-      control: 'object',
-      description: 'Pill button configuration for discounts/categories',
+      control: "object",
+      description: "Pill button configuration for discounts/categories",
     },
     onClick: {
-      action: 'clicked',
-      description: 'Función ejecutada al hacer click en la card para redirigir a detalles',
+      action: "clicked",
+      description:
+        "Función ejecutada al hacer click en la card para redirigir a detalles",
     },
   },
 };
@@ -58,7 +64,8 @@ export const Default: Story = {
       "Reloj inteligente con monitoreo de salud avanzado y batería de 7 días. Perfecto para tu estilo de vida activo.",
     price: 299.99,
     rating: 4.5,
-    onClick: () => console.log('Navigate to product details'),
+    totalRatings: 234,
+    onClick: () => console.log("Navigate to product details"),
   },
 };
 
@@ -71,6 +78,7 @@ export const WithoutPrice: Story = {
     description:
       "Diseño ergonómico y materiales de alta calidad para máximo confort durante tus entrenamientos.",
     rating: 4.8,
+    totalRatings: 156,
   },
 };
 
@@ -85,7 +93,7 @@ export const ProductGrid: Story = {
         price={199.99}
         rating={4.7}
         icon={<Zap className="w-4 h-4 text-blue-500" />}
-        onClick={() => console.log('Navigate to headphones details')}
+        onClick={() => console.log("Navigate to headphones details")}
       />
       <ModernCard
         image="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=300&fit=crop"
@@ -94,7 +102,7 @@ export const ProductGrid: Story = {
         price={449.99}
         rating={4.9}
         icon={<Gift className="w-4 h-4 text-green-500" />}
-        onClick={() => console.log('Navigate to camera details')}
+        onClick={() => console.log("Navigate to camera details")}
       />
       <ModernCard
         image="https://images.unsplash.com/photo-1560343090-f0409e92791a?w=400&h=300&fit=crop"
@@ -103,7 +111,7 @@ export const ProductGrid: Story = {
         price={129.99}
         rating={4.4}
         icon={<Tag className="w-4 h-4 text-red-500" />}
-        onClick={() => console.log('Navigate to sneakers details')}
+        onClick={() => console.log("Navigate to sneakers details")}
       />
     </div>
   ),
@@ -217,7 +225,7 @@ export const ProductGridWithPills: Story = {
         price={199.99}
         rating={4.7}
         pill={{ text: "Save 15%", variant: "discount", size: "sm" }}
-        onClick={() => console.log('Navigate to headphones details')}
+        onClick={() => console.log("Navigate to headphones details")}
       />
       <ModernCard
         image="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=300&fit=crop"
@@ -226,7 +234,7 @@ export const ProductGridWithPills: Story = {
         price={449.99}
         rating={4.9}
         pill={{ text: "Best Seller", variant: "bestseller", size: "sm" }}
-        onClick={() => console.log('Navigate to camera details')}
+        onClick={() => console.log("Navigate to camera details")}
       />
       <ModernCard
         image="https://images.unsplash.com/photo-1560343090-f0409e92791a?w=400&h=300&fit=crop"
@@ -235,7 +243,7 @@ export const ProductGridWithPills: Story = {
         price={129.99}
         rating={4.4}
         pill={{ text: "New", variant: "new", size: "sm" }}
-        onClick={() => console.log('Navigate to sneakers details')}
+        onClick={() => console.log("Navigate to sneakers details")}
       />
     </div>
   ),
@@ -289,11 +297,53 @@ export const WithSparklesIcon: Story = {
       "Sonido de alta fidelidad con cancelación de ruido activa. Batería de 30 horas.",
     price: 199.99,
     rating: 4.7,
+    totalRatings: 89,
     pill: {
       text: "New",
       icon: <Sparkles className="w-3 h-3" />,
       variant: "new",
       size: "sm",
     },
+  },
+};
+
+// Card showcasing new 5-star rating system
+export const WithFullRating: Story = {
+  args: {
+    image:
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop",
+    title: "Smart Watch Pro",
+    description:
+      "Reloj inteligente con monitoreo de salud avanzado y batería de 7 días.",
+    price: 299.99,
+    rating: 4.3,
+    totalRatings: 1247,
+  },
+};
+
+// Card with perfect rating
+export const WithPerfectRating: Story = {
+  args: {
+    image:
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop",
+    title: "Zapatillas Premium",
+    description:
+      "Diseño ergonómico y materiales de alta calidad para máximo confort.",
+    price: 179.99,
+    rating: 5.0,
+    totalRatings: 342,
+  },
+};
+
+// Card with low rating
+export const WithLowRating: Story = {
+  args: {
+    image:
+      "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&h=300&fit=crop",
+    title: "Bolso de Cuero",
+    description: "Bolso de cuero genuino con diseño minimalista.",
+    price: 79.99,
+    rating: 2.5,
+    totalRatings: 23,
   },
 };

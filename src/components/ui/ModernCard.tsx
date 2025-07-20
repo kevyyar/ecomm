@@ -9,6 +9,7 @@ export interface ModernCardProps {
   icon?: React.ReactNode;
   price?: number;
   rating?: number;
+  totalRatings?: number;
   pill?: {
     text: string;
     variant?: PillButtonProps["variant"];
@@ -27,6 +28,7 @@ const ModernCard: React.FC<ModernCardProps> = ({
   icon,
   price,
   rating = 0,
+  totalRatings = 0,
   pill,
   onClick,
   onFavorite,
@@ -92,9 +94,23 @@ const ModernCard: React.FC<ModernCardProps> = ({
 
             {/* Rating */}
             {rating > 0 && (
-              <div className="flex items-center gap-1 mt-1">
-                <Star className="w-4 h-4 text-yellow-400 fill-current flex-shrink-0" />
-                <span className="text-sm text-gray-600">{rating}</span>
+              <div className="flex items-center gap-2 mt-1">
+                <div className="flex items-center">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Star
+                      key={star}
+                      className={`w-4 h-4 ${
+                        star <= rating
+                          ? 'text-yellow-400 fill-current'
+                          : 'text-gray-300 fill-current'
+                      }`}
+                    />
+                  ))}
+                </div>
+                <span className="text-sm text-gray-600 font-medium">{rating.toFixed(1)}</span>
+                {totalRatings > 0 && (
+                  <span className="text-xs text-gray-500">({totalRatings})</span>
+                )}
               </div>
             )}
 
@@ -115,8 +131,8 @@ const ModernCard: React.FC<ModernCardProps> = ({
 
           {/* Right arrow icon */}
           <div className="flex-shrink-0 ml-4">
-            <div className="p-3 bg-gray-50 rounded-full group-hover:bg-gray-100 transition-colors duration-200">
-              <ArrowRight className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors duration-200 group-hover:translate-x-1 transform" />
+            <div className="p-3 bg-gray-50 rounded-full">
+              <ArrowRight className="w-5 h-5 text-gray-600" />
             </div>
           </div>
         </div>
