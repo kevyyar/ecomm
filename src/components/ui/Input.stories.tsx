@@ -61,12 +61,12 @@ export const EmailInput: Story = {
   },
 };
 
-export const PasswordInput: Story = {
+export const PasswordWithToggle: Story = {
   args: {
     type: 'password',
     placeholder: 'Enter your password',
     iconLeft: <Lock size={20} />,
-    iconRight: <EyeOff size={20} />,
+    passwordToggle: true,
   },
 };
 
