@@ -1,18 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Input } from './Input';
-import { Search, Eye, EyeOff, Mail, Lock, User } from 'lucide-react';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Input } from "./Input";
+import { Search, Eye, Mail, Lock, User, Phone } from "lucide-react";
 
 const meta: Meta<typeof Input> = {
-  title: 'UI/Input',
+  title: "UI/Input",
   component: Input,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     type: {
-      control: { type: 'select' },
-      options: ['text', 'email', 'password', 'number', 'tel', 'url'],
+      control: { type: "select" },
+      options: ["text", "email", "password", "number", "tel", "url"],
     },
-    placeholder: { control: 'text' },
-    disabled: { control: 'boolean' },
+    placeholder: { control: "text" },
+    disabled: { control: "boolean" },
     iconLeft: {
       control: false,
     },
@@ -27,27 +27,27 @@ type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
   args: {
-    placeholder: 'Enter your text...',
+    placeholder: "Enter your text...",
   },
 };
 
 export const WithLeftIcon: Story = {
   args: {
-    placeholder: 'Search...',
+    placeholder: "Search...",
     iconLeft: <Search size={20} />,
   },
 };
 
 export const WithRightIcon: Story = {
   args: {
-    placeholder: 'Enter password',
+    placeholder: "Enter password",
     iconRight: <Eye size={20} />,
   },
 };
 
 export const WithBothIcons: Story = {
   args: {
-    placeholder: 'Enter your email',
+    placeholder: "Enter your email",
     iconLeft: <Mail size={20} />,
     iconRight: <span className="text-xs text-text-gray-500">@gmail.com</span>,
   },
@@ -55,16 +55,16 @@ export const WithBothIcons: Story = {
 
 export const EmailInput: Story = {
   args: {
-    type: 'email',
-    placeholder: 'Enter your email',
+    type: "email",
+    placeholder: "Enter your email",
     iconLeft: <Mail size={20} />,
   },
 };
 
 export const PasswordWithToggle: Story = {
   args: {
-    type: 'password',
-    placeholder: 'Enter your password',
+    type: "password",
+    placeholder: "Enter your password",
     iconLeft: <Lock size={20} />,
     passwordToggle: true,
   },
@@ -72,22 +72,30 @@ export const PasswordWithToggle: Story = {
 
 export const UsernameInput: Story = {
   args: {
-    placeholder: 'Enter username',
+    placeholder: "Enter username",
     iconLeft: <User size={20} />,
   },
 };
 
 export const Disabled: Story = {
   args: {
-    placeholder: 'This input is disabled',
+    placeholder: "This input is disabled",
     disabled: true,
   },
 };
 
 export const DisabledWithIcon: Story = {
   args: {
-    placeholder: 'Disabled with icon',
+    placeholder: "Disabled with icon",
     iconLeft: <Search size={20} />,
     disabled: true,
+  },
+};
+
+export const PhoneInput: Story = {
+  args: {
+    type: "tel",
+    placeholder: "Enter phone number",
+    iconLeft: <Phone size={20} />,
   },
 };

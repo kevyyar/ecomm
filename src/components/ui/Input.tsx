@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import { formatPhoneNumber } from "../../utils/formatPhoneNumber";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   iconLeft?: React.ReactNode;
@@ -17,7 +18,27 @@ export const Input: React.FC<InputProps> = ({
   ...props
 }) => {
   const [showPassword, setShowPassword] = useState(false);
-  const { type = "text", ...inputProps } = props;
+  const [inputValue, setInputValue] = useState("");
+  const {
+    type = "text",
+    value: controlledValue,
+    onChange: controlledOnChange,
+    ...inputProps
+  } = props;
+  const isControlled = controlledValue !== undefined;
+  const value = isControlled ? controlledValue : inputValue;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let newValue = e.target.value;
+    if (type === "tel") {
+      newValue = formatPhoneNumber(newValue);
+    }
+    if (!isControlled) {
+      setInputValue(newValue);
+    }
+    if (controlledOnChange) {
+      controlledOnChange(e);
+    }
+  };
   const inputType =
     passwordToggle && type === "password"
       ? showPassword
@@ -62,6 +83,8 @@ export const Input: React.FC<InputProps> = ({
       <input
         type={inputType}
         className={`${baseInputClasses} ${paddingClasses} ${className || ""}`}
+        value={value}
+        onChange={handleChange}
         {...inputProps}
       />
       {rightElement}
