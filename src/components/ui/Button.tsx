@@ -3,6 +3,7 @@ import React from "react";
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "outline" | "ghost";
   size?: "sm" | "md" | "lg" | "xl";
+  icon?: React.ReactNode;
 }
 
 export const Button = ({
@@ -10,6 +11,7 @@ export const Button = ({
   variant = "primary",
   size = "md",
   className,
+  icon,
   ...props
 }: ButtonProps) => {
   const baseClasses =
@@ -39,6 +41,7 @@ export const Button = ({
   return (
     <button className={combinedClasses} {...props}>
       {children}
+      {icon && <span className="ml-2">{icon}</span>}
     </button>
   );
 };
