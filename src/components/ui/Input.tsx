@@ -46,13 +46,14 @@ export const Input: React.FC<InputProps> = ({
         : "password"
       : type;
   const baseInputClasses =
-    "w-full h-full text-base bg-transparent focus:outline-none text-text-gray-700 placeholder:text-text-gray-500";
+    "w-full h-full text-base bg-transparent focus:outline-none text-text-gray-700 placeholder:text-text-gray-500 disabled:cursor-not-allowed disabled:text-text-gray-500 disabled:placeholder:text-text-gray-400";
   const containerClasses = `
     relative flex items-center h-12
     bg-bg-white border-2 border-border-gray-300 rounded-lg
     transition-all duration-200 ease-in-out
     focus-within:border-border-pink-300
     focus-within:ring-2 focus-within:ring-border-pink-200/50
+    ${props.disabled ? 'opacity-60 cursor-not-allowed bg-bg-gray-50 border-border-gray-200' : ''}
   `;
   const paddingClasses = `
     ${iconLeft ? "pl-10" : "pl-4"}
@@ -63,24 +64,24 @@ export const Input: React.FC<InputProps> = ({
     passwordToggle && type === "password" ? (
       <button
         type="button"
-        className="absolute right-3 top-1/2 -translate-y-1/2 text-text-gray-400 bg-transparent border-none cursor-pointer focus:outline-none"
+        className="absolute right-3 top-1/2 -translate-y-1/2 text-text-gray-400 bg-transparent border-none cursor-pointer focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
         onClick={() => setShowPassword(!showPassword)}
+        disabled={props.disabled}
       >
         {showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
       </button>
     ) : iconRight ? (
-      <span className="absolute right-3 top-1/2 -translate-y-1/2 text-text-gray-400">
+      <span className={`absolute right-3 top-1/2 -translate-y-1/2 text-text-gray-400 ${props.disabled ? 'opacity-60' : ''}`}>
         {iconRight}
       </span>
     ) : null;
   return (
     <div className={`${containerClasses} ${containerClassName || ""}`}>
-      {iconLeft && (
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-text-gray-400">
+       {iconLeft && (
+        <span className={`absolute left-3 top-1/2 -translate-y-1/2 text-text-gray-400 ${props.disabled ? 'opacity-60' : ''}`}>
           {iconLeft}
         </span>
-      )}
-      <input
+      )}      <input
         type={inputType}
         className={`${baseInputClasses} ${paddingClasses} ${className || ""}`}
         value={value}
