@@ -15,7 +15,7 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const baseClasses =
-    "font-semibold font-poppins transition-all duration-300 ease-in-out flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed";
+    "font-semibold font-poppins transition-all duration-300 ease-in-out flex items-center justify-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed";
 
   const variantClasses = {
     primary:
